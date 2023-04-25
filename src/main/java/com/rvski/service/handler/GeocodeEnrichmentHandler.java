@@ -1,6 +1,7 @@
-package com.rvski.service;
+package com.rvski.service.handler;
 
 import com.rvski.exception.BusinessRuleException;
+import com.rvski.service.handler.AbstractEnrichmentHandler;
 
 public class GeocodeEnrichmentHandler extends AbstractEnrichmentHandler {
 

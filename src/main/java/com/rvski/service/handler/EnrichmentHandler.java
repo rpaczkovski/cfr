@@ -1,4 +1,4 @@
-package com.rvski.service;
+package com.rvski.service.handler;
 
 public interface EnrichmentHandler {
 
