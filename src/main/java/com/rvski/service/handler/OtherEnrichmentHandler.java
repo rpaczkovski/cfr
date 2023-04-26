@@ -1,8 +1,11 @@
 package com.rvski.service.handler;
 
 import com.rvski.exception.BusinessRuleException;
-import com.rvski.service.handler.AbstractEnrichmentHandler;
+import lombok.AllArgsConstructor;
+import org.springframework.stereotype.Component;
 
+@Component
+@AllArgsConstructor
 public class OtherEnrichmentHandler extends AbstractEnrichmentHandler {
 
   @Override

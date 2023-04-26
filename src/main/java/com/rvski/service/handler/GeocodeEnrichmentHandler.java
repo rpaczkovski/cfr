@@ -1,8 +1,9 @@
 package com.rvski.service.handler;
 
 import com.rvski.exception.BusinessRuleException;
-import com.rvski.service.handler.AbstractEnrichmentHandler;
+import org.springframework.stereotype.Component;
 
+@Component
 public class GeocodeEnrichmentHandler extends AbstractEnrichmentHandler {
 
   @Override

@@ -1,7 +1,9 @@
 package com.rvski.service.handler;
 
 import com.rvski.exception.BusinessRuleException;
+import org.springframework.stereotype.Component;
 
+@Component
 public class DefaultEnrichmentHandler extends AbstractEnrichmentHandler {
 
   @Override

@@ -1,14 +1,19 @@
 package com.rvski.service.handler;
 
-import com.rvski.exception.BusinessRuleException;
 
+import com.rvski.exception.BusinessRuleException;
+import java.util.ArrayList;
+import java.util.List;
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 public abstract class AbstractEnrichmentHandler implements EnrichmentHandler {
 
-  protected EnrichmentHandler nextHandler;
+  protected List<EnrichmentHandler> nextHandlers = new ArrayList<>();
 
   @Override
-  public void setNext(EnrichmentHandler handler) {
-    this.nextHandler = handler;
+  public void addNext(EnrichmentHandler handler) {
+    nextHandlers.add(handler);
   }
 
   @Override
@@ -16,10 +21,10 @@ public abstract class AbstractEnrichmentHandler implements EnrichmentHandler {
     try {
       response = enrich(response);
     } catch (BusinessRuleException e) {
-      System.out.printf("Erro de regra de negócio: " + e.getMessage() + "\n");
+      log.error("Erro ao enriquecer a resposta: {}", e.getMessage());
     }
-    if (nextHandler != null) {
-      response = nextHandler.handle(response);
+    for (EnrichmentHandler handler : nextHandlers) {
+      response = handler.handle(response);
     }
     return response;
   }

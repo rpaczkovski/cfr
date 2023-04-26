@@ -2,7 +2,7 @@ package com.rvski.service.handler;
 
 public interface EnrichmentHandler {
 
-  void setNext(EnrichmentHandler handler);
+  void addNext(EnrichmentHandler handler);
 
   String handle(String response);
 }
